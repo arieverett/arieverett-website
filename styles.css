@@ -1,0 +1,617 @@
+/* Responsive, framework-free reconstruction of the user's Super-hosted Notion page. */
+:root {
+  color-scheme: light;
+  --page: #f8f3f3;
+  --ink: #37352f;
+  --faint: rgba(55, 53, 47, 0.09);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font:
+    16px/1.5 -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+a:focus-visible {
+  outline: 2px solid #2383e2;
+  outline-offset: 3px;
+}
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  background: white;
+  padding: 8px;
+  z-index: 20;
+}
+.skip-link:focus {
+  top: 12px;
+}
+.site-header {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  font-size: 14px;
+}
+.brand {
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 400;
+}
+.brand span {
+  font-size: 15px;
+  vertical-align: -1px;
+}
+.notion-page {
+  width: 675px;
+  max-width: calc(100% - 44px);
+  margin: 96px auto 0;
+  position: relative;
+  left: 0;
+  padding-bottom: 220px;
+}
+.page-icon {
+  font-size: 72px;
+  line-height: 1.2;
+  height: 114px;
+  margin-bottom: 10px;
+}
+.page-title {
+  font-size: 40px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+.wordmark {
+  margin: 0 0 19px;
+  line-height: 0;
+}
+.wordmark img {
+  height: 108px;
+  width: 108px;
+  object-fit: contain;
+}
+.intro h2 {
+  font-size: 30px;
+  line-height: 1.25;
+  margin: 0 0 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.intro-bold {
+  font-size: 24px;
+  line-height: 1.23;
+  font-weight: 700;
+  margin: 0 0 18px;
+  letter-spacing: -0.012em;
+}
+.profile-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 38px;
+  align-items: start;
+  min-height: 305px;
+}
+.illustration {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2px;
+}
+.illustration img {
+  display: block;
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+}
+.profile-facts {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.profile-facts p {
+  margin: 0 0 8px;
+}
+.profile-facts a {
+  font-weight: 500;
+}
+.fact-separator {
+  height: 38px;
+}
+.highlight-orange {
+  background: #fae7d5;
+  font-weight: 700;
+  font-style: italic;
+}
+.notion-callout {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 10px 14px;
+  margin: 9px 0 0;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 2px;
+}
+.notion-callout span:last-child {
+  text-decoration: underline;
+}
+.notion-callout span:first-child {
+  font-size: 22px;
+}
+.resume {
+  background: #fff0d5;
+}
+.company {
+  background: #dff0fc;
+}
+.bio-paragraph {
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 24px 0 30px;
+}
+.bio-paragraph a {
+  font-weight: 600;
+}
+.section {
+  border-top: 1px solid var(--faint);
+  padding-top: 24px;
+  margin-top: 34px;
+}
+.section h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 0 0 3px;
+  letter-spacing: -0.012em;
+}
+.section-description {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 7px;
+}
+.testimonial-card {
+  min-height: 368px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  padding: 50px 42px;
+  align-items: start;
+  border: 1px solid rgba(55, 53, 47, 0.06);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.testimonial-photo {
+  width: 100%;
+  max-width: 290px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  align-self: center;
+}
+.testimonial-text {
+  font-size: 15px;
+  min-width: 0;
+}
+.stars {
+  font-size: 15px;
+  color: #bc840e;
+  margin-bottom: 5px;
+}
+.testimonial-text h3 {
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  margin: 0 0 9px;
+}
+.testimonial-text p {
+  margin: 0;
+  line-height: 1.5;
+}
+.testimonial-credit {
+  margin-top: 46px !important;
+}
+.testimonial-credit span {
+  color: #787774;
+}
+.nephew-label {
+  margin-top: 48px;
+  margin-bottom: 7px;
+}
+.benji-card {
+  background: #ecedee;
+  min-height: 385px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.benji-card .testimonial-text {
+  align-self: start;
+}
+.benji-valid {
+  margin-top: 66px !important;
+}
+.benji-card .testimonial-credit {
+  margin-top: 68px !important;
+}
+.writings {
+  margin-top: 52px;
+  padding-top: 24px;
+}
+.writing-rows {
+  margin: 8px 0 0;
+}
+.writing-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 35px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.writing-row a {
+  text-decoration: none;
+}
+.writing-row a:hover {
+  text-decoration: underline;
+}
+.tags {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 1px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.purple {
+  background: #e8dcf2;
+  color: #6940a5;
+}
+.blue {
+  background: #d9e9f7;
+  color: #285c8c;
+}
+.orange {
+  background: #f8e5d2;
+  color: #a05c19;
+}
+.green {
+  background: #daeadb;
+  color: #396f47;
+}
+.red {
+  background: #f8dddd;
+  color: #a03832;
+}
+.pink {
+  background: #f5ddea;
+  color: #ac467c;
+}
+.portfolio {
+  margin-top: 48px;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin-top: 10px;
+}
+.portfolio-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e9e5e5;
+  border-radius: 5px;
+  overflow: hidden;
+  text-decoration: none;
+  font-size: 13px;
+}
+.portfolio-card:hover {
+  border-color: #aaa;
+}
+.portfolio-card img {
+  width: 100%;
+  height: 164px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.portfolio-card span {
+  display: block;
+  padding: 7px 9px;
+}
+.contact {
+  margin-top: 40px;
+  padding-top: 22px;
+}
+.contact h2 {
+  margin-bottom: 3px;
+}
+.contact p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 3px;
+}
+.page-footer {
+  border-top: 1px solid var(--faint);
+  margin-top: 36px;
+  padding-top: 14px;
+  font-size: 14px;
+}
+.page-footer img {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+.page-footer p {
+  margin: 12px 0;
+}
+.page-footer .images-link {
+  margin-top: 30px;
+}
+.page-footer .images-link a {
+  text-decoration: none;
+}
+/* Existing exported writing and portfolio pages remain readable and functional. */
+.page-shell {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+.page-shell .site-header {
+  padding: 0;
+  margin-top: 15px;
+  height: auto;
+  min-height: 32px;
+  border-bottom: 1px solid var(--faint);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.page-shell .brand {
+  font-weight: 600;
+}
+.page-shell .main-nav {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.page-shell .main-nav a {
+  text-decoration: none;
+}
+.detail-page {
+  padding: 70px 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.back-link {
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 22px;
+}
+.section-kicker {
+  font-size: 12px;
+  color: #787774;
+  letter-spacing: 0.05em;
+}
+.detail-heading {
+  font-size: 38px;
+  line-height: 1.2;
+  margin: 13px 0 14px;
+  overflow-wrap: anywhere;
+}
+.detail-meta {
+  font-size: 13px;
+  color: #787774;
+  margin-bottom: 25px;
+}
+.detail-content {
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.detail-content p {
+  margin-bottom: 20px;
+}
+.detail-content a {
+  overflow-wrap: anywhere;
+}
+.detail-content figure {
+  margin: 25px 0;
+}
+.detail-content figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.detail-bottom {
+  border-top: 1px solid var(--faint);
+  margin-top: 50px;
+  padding-top: 20px;
+}
+.footer {
+  border-top: 1px solid var(--faint);
+  padding: 20px 0 45px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.detail-content .page-body {
+  max-width: 100%;
+}
+/* The screenshot's mobile version is a narrow, stacked Notion column. */
+@media (max-width: 900px) {
+  .notion-page {
+    left: 0;
+    width: 700px;
+    margin-top: 63px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  .site-header {
+    height: 38px;
+    padding: 0 11px;
+  }
+  .brand {
+    font-size: 13px;
+  }
+  .notion-page {
+    max-width: calc(100% - 38px);
+    margin-top: 65px;
+    padding-bottom: 110px;
+  }
+  .page-icon {
+    font-size: 72px;
+    height: 98px;
+  }
+  .page-title {
+    font-size: 36px;
+    line-height: 1.13;
+    margin-bottom: 17px;
+  }
+  .wordmark img {
+    width: 90px;
+    height: 90px;
+  }
+  .wordmark {
+    margin-bottom: 22px;
+  }
+  .intro h2 {
+    font-size: 27px;
+    margin-bottom: 13px;
+  }
+  .intro-bold {
+    font-size: 23px;
+    line-height: 1.2;
+    margin-bottom: 17px;
+  }
+  .profile-columns {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .illustration img {
+    width: min(100%, 340px);
+  }
+  .profile-facts {
+    font-size: 16px;
+  }
+  .fact-separator {
+    height: 22px;
+  }
+  .bio-paragraph {
+    font-size: 16px;
+    margin: 24px 0 35px;
+  }
+  .section {
+    margin-top: 35px;
+    padding-top: 20px;
+  }
+  .section h2 {
+    font-size: 24px;
+  }
+  .section-description {
+    font-size: 15px;
+  }
+  .testimonial-card {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 35px 30px;
+    min-height: 0;
+  }
+  .testimonial-photo {
+    width: 100%;
+    max-width: 260px;
+    justify-self: center;
+  }
+  .testimonial-text h3 {
+    font-size: 24px;
+  }
+  .testimonial-credit {
+    margin-top: 40px !important;
+  }
+  .benji-card .testimonial-text {
+    order: 0;
+  }
+  .benji-card .testimonial-photo {
+    order: 1;
+  }
+  .benji-valid {
+    margin-top: 50px !important;
+  }
+  .benji-card .testimonial-credit {
+    margin-top: 48px !important;
+  }
+  .nephew-label {
+    margin-top: 32px;
+  }
+  .writing-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    margin: 8px 0;
+  }
+  .tags {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .portfolio-card img {
+    height: 210px;
+  }
+  .page-footer {
+    font-size: 14px;
+  }
+  .page-shell .site-header {
+    display: block;
+    padding: 10px 0;
+  }
+  .page-shell .main-nav {
+    padding: 8px 0;
+  }
+  .detail-page {
+    padding: 43px 0;
+  }
+  .detail-heading {
+    font-size: 32px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.home-page .notion-page {
+  left: 0 !important;
+}
