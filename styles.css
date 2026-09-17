@@ -90,7 +90,7 @@ a:focus-visible {
   width: 108px;
   object-fit: contain;
 }
-.intro h2 {
+.intro h1 {
   font-size: 30px;
   line-height: 1.25;
   margin: 0 0 13px;
@@ -505,7 +505,7 @@ a:focus-visible {
   .wordmark {
     margin-bottom: 22px;
   }
-  .intro h2 {
+  .intro h1 {
     font-size: 27px;
     margin-bottom: 13px;
   }
